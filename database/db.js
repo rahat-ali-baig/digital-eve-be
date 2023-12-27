@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const uri = process.env.DB_CONNECTION 
+const user = process.env.DB_USER
+const userpass = process.env.DB_PASS 
+const dbname = process.env.DB_NAME 
 
+const uri= `mongodb+srv://${user}:${userpass}@digital-eve.6ta7jrf.mongodb.net/${dbname}`
 async function connect() {
   try {
     await mongoose.connect(uri, { useNewUrlParser: true });

@@ -16,10 +16,6 @@ const Users = new mongoose.Schema({
         type: String,
         required: true,
     },
-    confirmpassword: {
-        type: String,
-        required: true,
-    },
 });
 
 const UsersData = mongoose.model('users', Users);

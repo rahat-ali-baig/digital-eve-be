@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+const ejs = require('ejs');
 const db = require('./database/db');
 // const dbConnect = require('./middleware/dbConnect');
 const UsersData = require('./models/Users');
@@ -12,7 +14,7 @@ db.connect();
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Hello World! This is your MERN stack server!');
+    res.send('Hey!👋 This is your Digital Eve 🟢 server!');
 });
 
 app.get('/signup', async (req, res) => {
@@ -22,7 +24,6 @@ app.get('/signup', async (req, res) => {
             lname: 'Ali',
             email: 'rahat@robx.ai',
             password: '123456',
-            confirmpassword: '12345',
         });
         await users.save();
         res.send('Data Inserted Successfully!');
@@ -40,6 +41,17 @@ app.get('/users', async (req, res) => {
         console.error('Error fetching users:', error);
         res.status(500).send('Internal Server Error');
     }
+});
+
+
+// Client routes
+app.set('views', path.join(__dirname, '../client/dist'));
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 module.exports = app;
