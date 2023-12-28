@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Digital Eve</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      body {
+        height: 100vh;
+        background: linear-gradient(to left top, rgb(8, 39, 0), black);
+        background-size: cover;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .flex ion-icon {
+        color: rgb(0, 223, 0);
+        font-size: 80px;
+      }
+      span {
+        font-size: 40px;
+      }
+
+      .flex .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      p {
+        font-size: 36px;
+        font-weight: 100;
+        opacity: 0.6;
+        padding: 30px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="icons">
+        <ion-icon name="logo-vercel"></ion-icon>
+        <span>+</span>
+        <ion-icon name="logo-nodejs"></ion-icon>
+      </div>
+      <p>Hey!👋 This is your Digital Eve 🟢 server!</p>
+    </div>
+  </body>
+</html>

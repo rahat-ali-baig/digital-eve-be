@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-const ejs = require('ejs');
+const path = require('path')
 const db = require('./database/db');
 // const dbConnect = require('./middleware/dbConnect');
 const UsersData = require('./models/Users');
@@ -14,7 +13,8 @@ db.connect();
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Hey!👋 This is your Digital Eve 🟢 server!');
+    const filePath = path.join(__dirname, 'template', 'index.html');
+    res.sendFile(filePath);
 });
 
 app.get('/signup', async (req, res) => {
@@ -41,17 +41,6 @@ app.get('/users', async (req, res) => {
         console.error('Error fetching users:', error);
         res.status(500).send('Internal Server Error');
     }
-});
-
-
-// Client routes
-app.set('views', path.join(__dirname, '../client/dist'));
-app.set('view engine', 'ejs');
-
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 module.exports = app;
